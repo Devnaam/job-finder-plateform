@@ -35,16 +35,23 @@ To run JobFinder locally, follow these steps:
    cd job-finder-plateform
    ```
 
-2. **Install Dependencies**:
+2. **Add Screenshots** (optional, for README visuals):
+   - Create a `screenshots/` directory in the project root.
+   - Add the following images (available in the repository or provided separately):
+     - `job-listings.png` (job listings page)
+     - `job-details.png` (job details page)
+     - `personalized-jobs.png` (personalized jobs page with resume upload)
+
+3. **Install Dependencies**:
    Ensure you have Node.js installed, then run:
    ```bash
    npm install
    ```
 
-3. **Set Up Environment**:
+4. **Set Up Environment**:
    The app relies on an external backend API (`https://job-finder-backend-vqg6.onrender.com`). Ensure the API is accessible. No additional environment variables are required for the frontend.
 
-4. **Run the Application**:
+5. **Run the Application**:
    Start the development server:
    ```bash
    npm start
@@ -73,6 +80,19 @@ To run JobFinder locally, follow these steps:
    - Use the fixed navbar to switch between "All Jobs," "Personalized Jobs," and "Favorite Jobs."
    - The footer provides quick links, contact info, and social media connections.
 
+## Screenshots
+
+Here are some snapshots of the JobFinder application in action:
+
+- **Job Listings Page** (`AllJobs`): Browse all available jobs with key details.
+  ![Job Listings Page](/screenshots/image2.png)
+
+- **Job Details Page** (`JobDetails`): View detailed job information and apply directly.
+  ![Job Details Page](/screenshots/image.png)
+
+- **Personalized Jobs Page** (`PersonlizedJobs`): Upload your resume to get tailored job recommendations.
+  ![Personalized Jobs Page](/screenshots/image1.png)
+
 ## Folder Structure
 
 ```plaintext
@@ -96,6 +116,10 @@ job-finder-plateform/
 │   └── index.js                    # Entry point
 ├── public/
 │   └── index.html                  # HTML template
+├── screenshots/
+│   ├── job-listings.png            # Screenshot of job listings page
+│   ├── job-details.png             # Screenshot of job details page
+│   ├── personalized-jobs.png       # Screenshot of personalized jobs page
 ├── package.json                    # Project dependencies
 └── README.md                       # Project documentation
 ```
@@ -136,6 +160,4 @@ For questions or feedback, reach out to:
 - **Portfolio**: [devnaam4s.vercel.app](https://devnaam4s.vercel.app/)
 - **Phone**: +91 6205791382
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+## Thank You
