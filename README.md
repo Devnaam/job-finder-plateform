@@ -1,89 +1,82 @@
-JobFinder
-JobFinder is a modern, user-friendly web application designed to help users discover job opportunities tailored to their skills. By uploading a resume, users can receive personalized job recommendations based on extracted skills and name. The platform also allows users to browse all available jobs, view detailed job descriptions, save favorite jobs, and navigate seamlessly with a responsive interface.
-Features
+# JobFinder
 
-Personalized Job Recommendations: Upload a PDF resume to extract skills and name, then receive job listings matched to your profile.
-Job Browsing: Explore all available jobs with detailed views including salary, skills required, and company information.
-Favorite Jobs: Save jobs to a favorites list for quick access, stored locally in the browser.
-Responsive Design: Fully responsive UI with a modern, vibrant aesthetic, optimized for mobile, tablet, and desktop devices.
-Smooth Navigation: Intuitive navigation with a fixed navbar, pagination for job listings, and a consistent footer across all pages.
-Interactive UI/UX: Smooth animations, hover effects, and clear visual feedback enhance user engagement.
-Local Storage: Persists user data (skills, jobs, favorites, resume filename) in the browser for a seamless experience.
+JobFinder is a modern, user-friendly web application designed to help users discover job opportunities tailored to their skills. By uploading a PDF resume, users can receive personalized job recommendations based on extracted skills and name. The platform also allows users to browse all available jobs, view detailed job descriptions, save favorite jobs, and navigate seamlessly with a responsive interface.
 
-Technologies Used
+## Features
 
-Frontend:
-React (with React Router for navigation)
-Tailwind CSS for styling
-Lucide React for icons
-Axios for API requests
+- **Personalized Job Recommendations**: Upload a PDF resume to extract skills and name, then receive job listings matched to your profile.
+- **Job Browsing**: Explore all available jobs with detailed views including salary, skills required, and company information.
+- **Favorite Jobs**: Save jobs to a favorites list for quick access, stored locally in the browser.
+- **Responsive Design**: Fully responsive UI with a modern, vibrant aesthetic, optimized for mobile, tablet, and desktop devices.
+- **Smooth Navigation**: Intuitive navigation with a fixed navbar, pagination for job listings, and a consistent footer across all pages.
+- **Interactive UI/UX**: Smooth animations, hover effects, and clear visual feedback enhance user engagement.
+- **Local Storage**: Persists user data (skills, jobs, favorites, resume filename) in the browser for a seamless experience.
 
+## Technologies Used
 
-Backend:
-External API (https://job-finder-backend-vqg6.onrender.com) for job data and resume processing
+- **Frontend**:
+  - React (with React Router for navigation)
+  - Tailwind CSS for styling
+  - Lucide React for icons
+  - Axios for API requests
+- **Backend**:
+  - External API (`https://job-finder-backend-vqg6.onrender.com`) for job data and resume processing
+- **Others**:
+  - Local Storage for client-side data persistence
+  - Markdown for documentation
 
+## Installation
 
-Others:
-Local Storage for client-side data persistence
-Markdown for documentation
-
-
-
-Installation
 To run JobFinder locally, follow these steps:
 
-Clone the Repository:
-git clone https://github.com/Devnaam/JobFinder.git
-cd JobFinder
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/Devnaam/job-finder-plateform.git
+   cd job-finder-plateform
+   ```
 
+2. **Install Dependencies**:
+   Ensure you have Node.js installed, then run:
+   ```bash
+   npm install
+   ```
 
-Install Dependencies:Ensure you have Node.js installed, then run:
-npm install
+3. **Set Up Environment**:
+   The app relies on an external backend API (`https://job-finder-backend-vqg6.onrender.com`). Ensure the API is accessible. No additional environment variables are required for the frontend.
 
+4. **Run the Application**:
+   Start the development server:
+   ```bash
+   npm start
+   ```
+   The app will be available at `http://localhost:3000`.
 
-Set Up Environment:The app relies on an external backend API (https://job-finder-backend-vqg6.onrender.com). Ensure the API is accessible. No additional environment variables are required for the frontend.
+## Usage
 
-Run the Application:Start the development server:
-npm start
+1. **Home Page**:
+   - Navigate to `/` to view all available jobs (`AllJobs` component).
+   - Browse jobs displayed as cards with details like title, company, location, salary, and skills.
 
-The app will be available at http://localhost:3000.
+2. **Job Details**:
+   - Click "View More" on a job card to visit `/job/:jobId` and see detailed information (`JobDetails` component), including description, skills, and an apply link.
 
+3. **Personalized Jobs**:
+   - Go to `/personlized-jobs` to upload a PDF resume (`PersonlizedJobs` component).
+   - The app extracts skills and name, then displays matched jobs based on your profile.
+   - Use pagination to navigate through job listings.
 
-Usage
+4. **Favorite Jobs**:
+   - Save jobs by clicking "Add to Favorites" on job cards.
+   - View saved jobs at `/favjobs` (`FavJobs` component).
 
-Home Page:
+5. **Navigation**:
+   - Use the fixed navbar to switch between "All Jobs," "Personalized Jobs," and "Favorite Jobs."
+   - The footer provides quick links, contact info, and social media connections.
 
-Navigate to / to view all available jobs (AllJobs component).
-Browse jobs displayed as cards with details like title, company, location, salary, and skills.
+## Folder Structure
 
-
-Job Details:
-
-Click "View More" on a job card to visit /job/:jobId and see detailed information (JobDetails component), including description, skills, and an apply link.
-
-
-Personalized Jobs:
-
-Go to /personlized-jobs to upload a PDF resume (PersonlizedJobs component).
-The app extracts skills and name, then displays matched jobs based on your profile.
-Use pagination to navigate through job listings.
-
-
-Favorite Jobs:
-
-Save jobs by clicking "Add to Favorites" on job cards.
-View saved jobs at /favjobs (FavJobs component).
-
-
-Navigation:
-
-Use the fixed navbar to switch between "All Jobs," "Personalized Jobs," and "Favorite Jobs."
-The footer provides quick links, contact info, and social media connections.
-
-
-
-Folder Structure
-JobFinder/
+```plaintext
+job-finder-plateform/
 ├── src/
 │   ├── assets/
 │   │   └── logo.png                # Logo image for branding
@@ -105,38 +98,44 @@ JobFinder/
 │   └── index.html                  # HTML template
 ├── package.json                    # Project dependencies
 └── README.md                       # Project documentation
+```
 
-API Integration
-The app interacts with an external backend API at https://job-finder-backend-vqg6.onrender.com for:
+## API Integration
 
-Fetching job listings (/jobs, /job/:jobId)
-Uploading resumes for skill and name extraction (/upload-resume)
+The app interacts with an external backend API at `https://job-finder-backend-vqg6.onrender.com` for:
+- Fetching job listings (`/jobs`, `/job/:jobId`)
+- Uploading resumes for skill and name extraction (`/upload-resume`)
 
 Ensure the backend API is running and accessible. The API is expected to return data in the following format for resume uploads:
+```json
 {
   "skills": ["skill1", "skill2", ...],
   "jobs": [{ "job_id": "", "job_title": "", ... }, ...],
   "name": "User Name"
 }
+```
 
-Contributing
+## Contributing
+
 Contributions are welcome! To contribute:
 
-Fork the repository.
-Create a new branch (git checkout -b feature/your-feature).
-Make your changes and commit (git commit -m "Add your feature").
-Push to the branch (git push origin feature/your-feature).
-Open a pull request.
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/your-feature`).
+3. Make your changes and commit (`git commit -m "Add your feature"`).
+4. Push to the branch (`git push origin feature/your-feature`).
+5. Open a pull request.
 
 Please ensure your code follows the project's coding style and includes relevant tests.
-Contact
+
+## Contact
+
 For questions or feedback, reach out to:
+- **Email**: [workwithdevnaam@gmail.com](mailto:workwithdevnaam@gmail.com)
+- **LinkedIn**: [Raj Priyadershi](https://www.linkedin.com/in/raj-priyadershi-56a256282/)
+- **GitHub**: [Devnaam](https://github.com/Devnaam)
+- **Portfolio**: [devnaam4s.vercel.app](https://devnaam4s.vercel.app/)
+- **Phone**: +91 6205791382
 
-Email: workwithdevnaam@gmail.com
-LinkedIn: Raj Priyadershi
-GitHub: Devnaam
-Portfolio: devnaam4s.vercel.app
-Phone: +91 6205791382
+## License
 
-License
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
